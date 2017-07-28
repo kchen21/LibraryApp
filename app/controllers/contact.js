@@ -11,6 +11,26 @@ export default Ember.Controller.extend({
   isValid: Ember.computed.and('isValidEmail', 'isValidMessage'),
   isDisabled: Ember.computed.not('isValid'),
 
+  toggleEmailCheck: Ember.observer('isValidEmail', function() {
+    let emailCheck = document.getElementById("email-check");
+
+    if (this.get('isValidEmail')) {
+      emailCheck.style.cssText = "display: inherit";
+    } else {
+      emailCheck.style.cssText = "display: none";
+    }
+  }),
+
+  toggleMessageCheck: Ember.observer('isValidMessage', function() {
+    let messageCheck = document.getElementById("message-check");
+
+    if (this.get('isValidMessage')) {
+      messageCheck.style.cssText = "display: inherit";
+    } else {
+      messageCheck.style.cssText = "display: none";
+    }
+  }),
+
   actions: {
 
     sendMessage() {

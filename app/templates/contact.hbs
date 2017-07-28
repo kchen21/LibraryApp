@@ -5,11 +5,13 @@
 {{/if}}
 
 <form>
-  <div class="form-group">
+  <div class="form-group has-feedback">
     {{input type="email" value=emailAddress class="form-control" placeholder="Please enter your email address." autofocus="autofocus"}}
+    <span id="email-check" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
   </div>
-  <div class="form-group">
+  <div class="form-group has-feedback">
     {{textarea value=message class="form-control" placeholder="Your message (at least 5 characters)" rows="7"}}
+    <span id="message-check" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
   </div>
   <button type="submit" class="btn btn-default" disabled={{isDisabled}} {{action 'sendMessage'}}>Send message</button>
 </form>
