@@ -1,17 +1,29 @@
 <h1>Contact Us</h1>
 
 {{#if responseMessage}}
-<div class="alert alert-success">{{responseMessage}}</div>
-{{/if}}
+  <div class="alert alert-success">
+    <h4>We have received your message and will get in touch soon.</h4>
+    <p>From: {{model.email}}</p>
+    <p>Message: {{model.message}}</p>
+    <p>Reference ID: {{model.id}}</p>
+  </div>
 
-<form>
-  <div class="form-group has-feedback">
-    {{input type="email" value=emailAddress class="form-control" placeholder="Please enter your email address." autofocus="autofocus"}}
-    <span id="email-check" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-  </div>
-  <div class="form-group has-feedback">
-    {{textarea value=message class="form-control" placeholder="Your message (at least 5 characters)" rows="7"}}
-    <span id="message-check" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-  </div>
-  <button type="submit" class="btn btn-default" disabled={{isDisabled}} {{action 'sendMessage'}}>Send message</button>
-</form>
+{{else}}
+
+  <form>
+    <div class="form-group has-feedback {{if model.isValidEmail 'has-success'}}">
+      {{input type="email" value=model.email class="form-control" placeholder="Please enter your email address." autofocus="autofocus"}}
+      {{#if model.isValidEmail}}
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      {{/if}}
+    </div>
+    <div class="form-group has-feedback {{if model.isValidMessage 'has-success'}}">
+      {{textarea value=model.message class="form-control" placeholder="Your message (at least 5 characters)" rows="7"}}
+      {{#if model.isValidMessage}}
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      {{/if}}
+    </div>
+    <button type="submit" class="btn btn-default" disabled={{model.isDisabled}} {{action 'sendMessage' model}}>Send</button>
+  </form>
+
+{{/if}}
