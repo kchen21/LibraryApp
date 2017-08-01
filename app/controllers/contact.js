@@ -34,10 +34,19 @@ export default Ember.Controller.extend({
   actions: {
 
     sendMessage() {
-      alert(`The following message: ${this.get('message')}, from ${this.get('emailAddress')}, is being sent...`);
-      this.set('responseMessage', "We have received your message and will get in touch soon.")
-      this.set('emailAddress', '');
-      this.set('message', '');
+      const email = this.get('emailAddress');
+      const message = this.get('message');
+
+      const newContact = this.store.createRecord('contact', {
+        email: email,
+        message: message
+      });
+
+      newContact.save().then(() => {
+        this.set('responseMessage', "We have received your message and will get in touch soon.")
+        this.set('emailAddress', '');
+        this.set('message', '');
+      });
     }
 
   }
