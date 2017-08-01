@@ -4,10 +4,10 @@ body {
   padding-top: 20px;
 }
 
-#email-check {
-  display: none;
+html {
+  overflow-y: scroll;
 }
 
-#message-check {
-  display: none;
+.library-item {
+  min-height: 150px;
 }
