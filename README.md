@@ -9,7 +9,7 @@ Library App is a single-page web application built using Ember.js 2 following a 
 ## User Pages
 
 1. a Home page where a user can submit an email address to get notified when Library App launches
-1. a Libraries page which shows information about local libraries and allows that information to be edited
+1. a Libraries page which shows information about local libraries; users can delete libraries, add new ones, and edit existing information
 2. a Books page which lists all the books available, including information such as Title, Author, Release Year, and Location
 3. an Authors page which lists all the authors along with their respective books
 4. a Contact page which allows a user to submit a message to the Admin
