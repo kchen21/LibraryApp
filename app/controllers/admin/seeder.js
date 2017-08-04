@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import Faker from 'faker'
+import Faker from 'faker';
 
 export default Ember.Controller.extend({
 
@@ -68,7 +68,7 @@ export default Ember.Controller.extend({
     },
 
   },
-  
+
   // Private methods
 
   // returns a Promise because saving to the database is a Promise

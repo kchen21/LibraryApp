@@ -13,11 +13,16 @@ html {
 }
 
 .label-fade {
-
+  margin: 10px;
+  opacity: 0;
+  @include transition(all 0.5s);
+  &.label-show {
+    opacity: 1;
+  }
 }
 
 .extra-padding-bottom {
-
+  padding-bottom: 20px;
 }
 
 // Spinner in a button
