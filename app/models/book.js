@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 import Faker from 'faker';
 
 export default DS.Model.extend({
@@ -7,6 +8,8 @@ export default DS.Model.extend({
   releaseYear: DS.attr('date'),
   library: DS.belongsTo('library', {inverse: 'books', async: true}),
   author: DS.belongsTo('author', {inverse: 'books', async: true}),
+
+  isInvalid: Ember.computed.empty('title'),
 
   randomize(author, library) {
     this.set('title', this._bookTitle());
