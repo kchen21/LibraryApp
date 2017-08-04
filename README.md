@@ -1,54 +1,23 @@
-# library-app
+# Library App
 
 [Library App live][firebase]
 
 [firebase]: https://library-app-541e0.firebaseapp.com/
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Library App is a single-page web application built using Ember.js 2 following a tutorial at [YoEmber](http://yoember.com/). It features:
 
-## Prerequisites
+## User Pages
 
-You will need the following things properly installed on your computer.
+1. a Home page where a user can submit an email address to get notified when Library App launches
+1. a Libraries page which shows information about local libraries and allows that information to be edited
+2. a Books page which lists all the books available, including information such as Title, Author, Release Year, and Location
+3. an Authors page which lists all the authors along with their respective books
+4. a Contact page which allows a user to submit a message to the Admin
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with NPM)
-* [Ember CLI](https://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+## Admin Pages
 
-## Installation
+1. an Invitations page which lists the reference ID and email of each user that requested to get notified when Library App launches
+2. a Contact Messages page which lists the reference ID, email, and message of each user that contacted the Admin
+3. a Seeder page that shows the number of Libraries, Authors, and Books stored in the database, and allows the Admin to seed the database and delete data
 
-* `git clone <repository-url>` this repository
-* `cd library-app`
-* `npm install`
-
-## Running / Development
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+Library App uses Firebase for database and app hosting. Seed data is generated using Faker.
